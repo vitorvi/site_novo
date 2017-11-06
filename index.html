@@ -1,0 +1,82 @@
+---
+layout: default
+title: Home
+permalink: /
+---
+
+<section id="capa-home">
+	<iframe src="https://player.vimeo.com/video/52597258?color=e31c79&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</section>
+
+<section class="filtros">
+	<nav class="container navbar navbar-expand-lg d-flex justify-content-center">
+		<ul>
+			<li><a href="">Ambientação</a></li>
+			<li><a href="">Digital</a></li>
+			<li><a href="">Editorial</a></li>
+			<li><a href="">Ilustração</a></li>
+			<li><a href="">Lettering</a></li>
+		</ul>
+	</nav>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row galeria">
+			{% include thumb-projeto-destaque.html %}
+			{% for i in (1..12) %}
+				{% include thumb-projeto.html %}
+			{% endfor %} 
+		</div>
+		<div class="row mais-projetos">
+			<button type="button" class="btn btn-primary btn-lg ml-auto mr-auto">
+				Mais projetos
+			</button>
+		</div>
+	</div>
+</section>
+
+<section class="clientes">
+	<div class="container">
+		<div class="row">
+			<h2 class="col">Também trabalhamos com:</h2>
+		</div>
+		<div class="row justify-content-around">
+			{% for i in (1..4) %}
+			<div class="cliente col-sm-5 col-md-5 col-lg-2">
+				<img src="{{ site.baseurl }}/img/cliente.svg">
+			</div>
+			{% endfor %}
+		</div>
+		<div class="row justify-content-around">
+			{% for i in (1..4) %}
+			<div class="cliente col-sm-5 col-md-5 col-lg-2">
+				<img src="{{ site.baseurl }}/img/cliente.svg">
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<script type="text/javascript">
+	var videos = $("iframe[src^='https://player.vimeo.com'], iframe[src^='https://www.youtube.com']"),
+    	fluidEl = $("#capa-home");
+
+    var ratios = [];
+
+	videos.each(function(index, element) {
+	  var ratio = element.height / element.width;
+	  ratios.push(ratio);
+	});
+
+	$(window).resize(function() {
+	  var newWidth = fluidEl.width();
+	  videos.each(function(index, element) {
+	    var el = $(element);
+	    el.width(newWidth).height(newWidth * ratios[index]);
+	  });
+
+	}).resize();
+	
+</script>
+

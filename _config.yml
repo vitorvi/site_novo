@@ -1,0 +1,14 @@
+title: Grande Circular
+email: contato@grandecircular.com
+description: >
+  Somos um escritório de design da capital do Brasil. 
+  Desenvolvemos projetos de identidade visual, editorial, 
+  ilustração, embalagem, tipografia, cenografia e multimídias.
+baseurl: ""
+url: "http://www.grandecircular.com"
+markdown: kramdown
+collections:
+  paginas:
+    output: true
+  projetos:
+    output: true

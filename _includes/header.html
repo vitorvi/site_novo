@@ -1,0 +1,39 @@
+<header class="position-fixed">
+	<nav class="container navbar navbar-expand-lg d-flex justify-content-between">
+
+		<a href="{{ site.baseurl }}/" class="logo">
+			{% include logo.html %}
+		</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="navbar-collapse collapse">
+			<ul class="menu ml-auto">
+				{% for pagina in site.paginas %}
+					<li>
+						<a
+						{% if page.url contains pagina.url %}
+						 class="current-page
+							{% if page.url != pagina.url %}
+								 link
+							{% endif %}
+								"
+							{% if page.url != pagina.url %}
+								href="{{ site.baseurl }}{{pagina.url}}"
+							{% endif %}
+						{% else %}
+							 class="link" href="{{ site.baseurl }}{{ pagina.url }}"
+						{% endif %}>
+							{{ pagina.title | upcase }} 
+						</a>
+					</li>
+				{% endfor %}
+				<li><a href="#contato">Contato</a></li>
+				<li><a href="http://3496d.iluria.com/" target="blank">Loja</a></li>
+				<li><a><strong>PT</strong></a> | <a href="">EN</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
